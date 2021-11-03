@@ -1,6 +1,21 @@
-<h2>My Orders</h2>
+<h2 class="text-center p-2">My Orders <i class="fas fa-shopping-cart"></i></h2>
+
+
+
 
 <% @orders.each do |order| %>
-  <p><%=order.product.name%> - $<%=order.product.unit_price%> - <%=order.created_at.strftime("%d/%m/%Y")%> </p>
+ <div class="card-product d-flex justify-content-between align-items-center">
+ <div class="d-flex align-items-center">
+ <% if order.product.photo.key%>
+  <%= cl_image_tag order.product.photo.key, height: 300, width: 400, crop: :fill %>
+  <%else%>
+  <img class="ml-3" src="https://images.unsplash.com/photo-1547056961-3c25e9140b05?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnJpY2tzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" />
+  <%end%>
+    <div class="product-description ml-2 p-2 text-left align-items-center">
+      <h2 class="product-name"><%=order.product.name%></h2>
+      <p>Unit: <strong>$<%=order.product.unit_price%></strong> - City: <strong><%=order.product.user.city.capitalize%></strong></p>
+      <p><%=order.product.description%></p>
+    </div>
+</div>
+</div>
 <%end%>
-<%=link_to "Back", products_path%>

@@ -1,10 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="main-card mt-2 mb-2 text-center pt-4 rounded-0" style="width: 100%; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.istockphoto.com/photos/demolition-rubble-picture-id157637703?b=1&k=20&m=157637703&s=170667a&w=0&h=ClTovdBmulqBTy9nSje4xtXSjFpyqm6kfMxZfnLs5w4=)">
+  Choose your construction trash!
+</div>
 <%= form_tag products_path, method: :get do %>
+<div class="d-flex justify-content-center">
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Find a product"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+    placeholder: "Find a product!",
+    class: "m-2"%>
+  </div>
+  <div class="button d-flex justify-content-center">
+    <%= submit_tag "Search", class: "btn btn-success" %>
+  </div>
 <% end %>
