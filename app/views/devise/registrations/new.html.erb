@@ -1,0 +1,35 @@
+<h2 class="text-center pt-2">Sign up</h2>
+<div class="container-form text-center d-flex justify-content-center p-4">
+  <div class="form-new-user text-center">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+
+        <%= f.input :first_name, required: true, input_html: {class: "fields"} %>
+
+        <%= f.input :last_name, required: true,input_html: {class: "fields"} %>
+
+        <%= f.input :email, required: true, input_html: {class: "fields"} %>
+
+        <%= f.input :address, required: true,input_html: {class: "fields"} %>
+
+        <%= f.input :city, required: true,input_html: {class: "fields"} %>
+
+        <%= f.input :password, input_html: {class: "fields"},
+          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+          required: true,
+          input_html: { autocomplete: "new-password" }, input_html: {class: "fields"} %>
+
+        <%= f.input :password_confirmation,  required: true,
+            input_html: { autocomplete: "new-password" }, input_html: {class: "fields"}%>
+
+
+        <%= f.button :submit, "Sign up", class: "btn btn-success text-center" %>
+
+    <% end %>
+    <br>
+    <br>
+     <%=link_to "Back", root_path %>
+  </div>
+
+
+</div>
